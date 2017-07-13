@@ -1,0 +1,27 @@
+{
+  "name": "news-scraper",
+  "version": "1.0.0",
+  "description": "Scrapes news from websites.",
+  "main": "news.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowmar/news-scraper.git"
+  },
+  "author": "Omar Imam <omar.imam@kineticvortex.com> (https://github.com/flowmar)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flowmar/news-scraper/issues"
+  },
+  "homepage": "https://github.com/flowmar/news-scraper#readme",
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "cheerio": "1.0.0-rc.2",
+    "express": "4.15.3",
+    "express-handlebars": "3.0.0",
+    "mongoose": "4.11.2",
+    "request": "2.81.0"
+  }
+}
