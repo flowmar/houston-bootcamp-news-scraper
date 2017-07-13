@@ -26,3 +26,7 @@ hr {
 .mini {
     font-size: .2rem;
 }
+
+.navb:hover {
+    background: slategrey;
+}
