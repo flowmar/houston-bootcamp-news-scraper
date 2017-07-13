@@ -4,7 +4,8 @@
 }
 
 hr {
-    border-top: 3px double #8c8b8b;
+    border-top: .3rem double grey;
+    margin: 0rem 4rem .5rem 4rem;
 }
 
 .main-content {
@@ -13,4 +14,15 @@ hr {
 
 .navbar-brand {
     font-family: "Lobster";
+}
+
+.main-content {
+    border-radius: 1rem;
+    border-color: black;
+    border-style: solid;
+    border-width: .2rem;
+}
+
+.mini {
+    font-size: .2rem;
 }
