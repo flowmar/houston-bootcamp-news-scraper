@@ -1,3 +1,12 @@
+# News Scraper
+
+The application is deployed on [Heroku](https://tranquil-sands-19349.herokuapp.com):
+```
+https://tranquil-sands-19349.herokuapp.com
+```
+
+---
+
 # All the News That's Fit to Scrape
 
 ### Overview
