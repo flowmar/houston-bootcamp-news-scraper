@@ -10,3 +10,7 @@ hr {
 .main-content {
     margin-top: -1rem;
 }
+
+.navbar-brand {
+    font-family: "Lobster";
+}
