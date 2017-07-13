@@ -1,0 +1,12 @@
+.jumbotron-fluid {
+    background: url('images/NYC-W1920.jpg') no-repeat;
+    text-shadow: 2px 2px 2px black;
+}
+
+hr {
+    border-top: 3px double #8c8b8b;
+}
+
+.main-content {
+    margin-top: -1rem;
+}
