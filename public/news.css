@@ -1,6 +1,11 @@
 .jumbotron-fluid {
     background: url('images/NYC-W1920.jpg') no-repeat;
     text-shadow: 2px 2px 2px black;
+    background-position: fixed;
+}
+
+nav {
+    text-shadow: 2px 2px 2px black;
 }
 
 hr {
@@ -14,6 +19,7 @@ hr {
 
 .navbar-brand {
     font-family: "Lobster";
+    text-shadow: 2px 2px 2px black;
 }
 
 .main-content {
@@ -21,6 +27,7 @@ hr {
     border-color: black;
     border-style: solid;
     border-width: .2rem;
+    text-shadow: .1rem .1rem .5rem white;
 }
 
 .mini {
@@ -29,4 +36,16 @@ hr {
 
 .navb:hover {
     background: slategrey;
+}
+
+p.lead {
+    font-family: "Lobster";
+}
+
+p.subtitle {
+     font-family: "Signika";
+}
+
+footer {
+    text-shadow: 2px 2px 2px black;
 }
