@@ -34,16 +34,12 @@ hr {
     font-size: .2rem;
 }
 
-.navb:hover {
-    background: slategrey;
-}
-
 p.lead {
     font-family: "Lobster";
 }
 
 p.subtitle {
-     font-family: "Signika";
+    font-family: "Signika";
 }
 
 footer {
