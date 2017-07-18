@@ -2,9 +2,10 @@
   "name": "news-scraper",
   "version": "1.0.0",
   "description": "Scrapes news from websites.",
-  "main": "news.js",
+  "main": "server.js",
   "scripts": {
-    "test": "npm start"
+    "test": "npm start",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,9 @@
     "express": "4.15.3",
     "express-handlebars": "3.0.0",
     "mongoose": "4.11.2",
+    "morgan": "1.8.2",
     "path": "0.12.7",
     "request": "2.81.0"
-  }
+  },
+  "devDependencies": {}
 }
