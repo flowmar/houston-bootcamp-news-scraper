@@ -1,8 +1,8 @@
 # News Scraper
 
-The application is deployed on [Heroku](https://tranquil-sands-19349.herokuapp.com):
+The application is deployed on [Heroku] https://flowmar-mongo-news-scraper.herokuapp.com:
 ```
-https://tranquil-sands-19349.herokuapp.com
+ https://flowmar-mongo-news-scraper.herokuapp.com
 ```
 
 ---
