@@ -15,6 +15,6 @@ app.listen(PORT);
 console.log("App is listening on port: ", PORT);
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/public/home.html'));
+    res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 

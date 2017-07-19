@@ -37,11 +37,9 @@ db.on("error", function (error) {
     console.log("Mongoose Error: ", error);
 });
 
-// Once logged in to the db through mongoose, log a success message
-promise.then(function (db) {
-    db.once("openUri", function () {
-        console.log("Mongoose connection successful.");
-    });
+// Once logged in to the db through mongoose, log a success messagepromise.then(function (db) {
+db.once("openUri", function () {
+    console.log("Mongoose connection successful.");
 });
 
 // Tell express to use the directory 'public' to serve static files from
@@ -60,24 +58,24 @@ app.get("/all", function (req, res) {
         } else {
             res.json(found);
         }
-    })
-})
+    });
+});
 
 app.get("/scrape", function (req, res) {
 
-    request("https://news.ycombinator.com/", function (error, response, html) {
+    request("https://www.edmsauce.com/news/", function (error, response, html) {
         var $ = cheerio.load(html);
-        $(".title").each(function (i, element) {
-            var title = $(this).children("a").text();
-            var link = $(this).children("a").attr("href");
+        $(".entry-title").each(function (i, element) {
+            var articleTitle = $(this).text();
+            var articleLink = $(this).children("a").attr("href");
 
             console.log(db);
             console.log(db.scrapedData);
 
-            if (title && link) {
+            if (articleTitle && articleLink) {
                 db.scrapedData.save({
-                    title: title,
-                    link: link
+                    articleTitle: articleTitle,
+                    articleLink: articleLink
                 },
                     function (error, saved) {
                         if (error) {
@@ -89,6 +87,15 @@ app.get("/scrape", function (req, res) {
                     })
             }
         })
+    });
+    // Save
+    scrapedData.save(function (error, doc) {
+        if (error) {
+            res.send(error);
+        }
+        else {
+            res.send(doc);
+        }
     });
     res.send("Scrape Complete!");
 });
