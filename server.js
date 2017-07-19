@@ -26,8 +26,10 @@ app.use(bodyParser.urlencoded({
 
 // const MONGODB_URI = "mongodb://heroku_8fpz7mpz:rhnm9h6727pte92f8cvge94nsb@ds157342.mlab.com:57342/heroku_8fpz7mpzs"
 // mongoose.connect(MONGODB_URI);
-mongoose.connect("mongodb://localhost/scraper");
-var db = mongoose.connection
+var promise = mongoose.connect("mongodb://localhost/scraper", {
+    useMongoClient: true
+});
+var db = mongoose.connection;
 
 
 // Show any mongoose errors
@@ -36,8 +38,10 @@ db.on("error", function (error) {
 });
 
 // Once logged in to the db through mongoose, log a success message
-db.once("open", function () {
-    console.log("Mongoose connection successful.");
+promise.then(function (db) {
+    db.once("openUri", function () {
+        console.log("Mongoose connection successful.");
+    });
 });
 
 // Tell express to use the directory 'public' to serve static files from
@@ -49,6 +53,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/all", function (req, res) {
+    db.useDb
     db.scrapedData.find({}, function (err, found) {
         if (err) {
             console.log(err);
@@ -65,6 +70,9 @@ app.get("/scrape", function (req, res) {
         $(".title").each(function (i, element) {
             var title = $(this).children("a").text();
             var link = $(this).children("a").attr("href");
+
+            console.log(db);
+            console.log(db.scrapedData);
 
             if (title && link) {
                 db.scrapedData.save({
