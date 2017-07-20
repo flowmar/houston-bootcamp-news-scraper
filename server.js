@@ -31,11 +31,19 @@ var promise = mongoose.connect("mongodb://localhost/scraper", {
 });
 var db = mongoose.connection;
 
-
-// Show any mongoose errors
-db.on("error", function (error) {
-    console.log("Mongoose Error: ", error);
+promise.then(function (db) {
+    connection.openUri('mongodb://localhost/scraper');
+    console.log(db);
 });
+
+var scrapedData =
+
+    // console.log(db.collections);
+
+    // Show any mongoose errors
+    db.on("error", function (error) {
+        console.log("Mongoose Error: ", error);
+    });
 
 // Once logged in to the db through mongoose, log a success messagepromise.then(function (db) {
 db.once("openUri", function () {
@@ -51,7 +59,6 @@ app.get("/", function (req, res) {
 });
 
 app.get("/all", function (req, res) {
-    db.useDb
     db.scrapedData.find({}, function (err, found) {
         if (err) {
             console.log(err);
@@ -65,12 +72,14 @@ app.get("/scrape", function (req, res) {
 
     request("https://www.edmsauce.com/news/", function (error, response, html) {
         var $ = cheerio.load(html);
+        var scrapedData = db.collection;
         $(".entry-title").each(function (i, element) {
             var articleTitle = $(this).text();
+            console.log(articleTitle);
             var articleLink = $(this).children("a").attr("href");
-
-            console.log(db);
-            console.log(db.scrapedData);
+            console.log(articleLink);
+            // console.log(db);
+            // console.log(db.scrapedData);
 
             if (articleTitle && articleLink) {
                 db.scrapedData.save({
