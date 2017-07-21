@@ -10,6 +10,12 @@ https://flowmar-mongo-news-scraper.herokuapp.com
 
 To Do:
 
+1. ~~Create UI Outline~~
+1. ~~Style UI~~
+1. ~~Set up Connection to Datbase~~
+1. ~~Set up Routes~~
+1. ~~Create a model for Articles~~
+1. ~~Scrape articles from news website~~
 1. Display scraped articles, 20 at a time when button clicked.
 1. Create a model for user Notes
 1. Create a model for a User
