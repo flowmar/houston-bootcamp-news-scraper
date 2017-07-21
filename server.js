@@ -36,14 +36,14 @@ promise.then(function (db) {
     console.log(db);
 });
 
-var scrapedData =
+// var scrapedData =
 
-    // console.log(db.collections);
+// console.log(db.collections);
 
-    // Show any mongoose errors
-    db.on("error", function (error) {
-        console.log("Mongoose Error: ", error);
-    });
+// Show any mongoose errors
+db.on("error", function (error) {
+    console.log("Mongoose Error: ", error);
+});
 
 // Once logged in to the db through mongoose, log a success messagepromise.then(function (db) {
 db.once("openUri", function () {
@@ -59,7 +59,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/all", function (req, res) {
-    db.scrapedData.find({}, function (err, found) {
+    Article.find({}, function (err, found) {
         if (err) {
             console.log(err);
         } else {
@@ -72,7 +72,7 @@ app.get("/scrape", function (req, res) {
 
     request("https://www.edmsauce.com/news/", function (error, response, html) {
         var $ = cheerio.load(html);
-        var scrapedData = db.collection;
+        // var scrapedData = db.collection;
         $(".entry-title").each(function (i, element) {
             var articleTitle = $(this).text();
             console.log(articleTitle);
@@ -82,18 +82,22 @@ app.get("/scrape", function (req, res) {
             // console.log(db.scrapedData);
 
             if (articleTitle && articleLink) {
-                db.scrapedData.save({
+                var article = new Article({
                     articleTitle: articleTitle,
                     articleLink: articleLink
-                },
-                    function (error, saved) {
-                        if (error) {
-                            console.log(error);
-                        }
-                        else {
-                            console.log(saved);
-                        }
-                    })
+                });
+                // scrapedData.save({
+                //     articleTitle: articleTitle,
+                //     articleLink: articleLink
+                // },
+                article.save(function (error, saved) {
+                    if (error) {
+                        console.log(error);
+                    }
+                    else {
+                        console.log(saved);
+                    }
+                })
             }
         })
     });
