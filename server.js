@@ -69,7 +69,6 @@ app.get("/all", function (req, res) {
 });
 
 app.get("/scrape", function (req, res) {
-
     request("https://www.edmsauce.com/news/", function (error, response, html) {
         var $ = cheerio.load(html);
         // var scrapedData = db.collection;
@@ -82,7 +81,7 @@ app.get("/scrape", function (req, res) {
             // console.log(db.scrapedData);
 
             if (articleTitle && articleLink) {
-                var article = new Article({
+                var articles = new Article({
                     articleTitle: articleTitle,
                     articleLink: articleLink
                 });
@@ -90,7 +89,7 @@ app.get("/scrape", function (req, res) {
                 //     articleTitle: articleTitle,
                 //     articleLink: articleLink
                 // },
-                article.save(function (error, saved) {
+                articles.save(function (error, saved) {
                     if (error) {
                         console.log(error);
                     }
@@ -101,15 +100,15 @@ app.get("/scrape", function (req, res) {
             }
         })
     });
-    // Save
-    scrapedData.save(function (error, doc) {
-        if (error) {
-            res.send(error);
-        }
-        else {
-            res.send(doc);
-        }
-    });
+    // // Save
+    // articles.save(function (error, doc) {
+    //     if (error) {
+    //         res.send(error);
+    //     }
+    //     else {
+    //         res.send(doc);
+    //     }
+    // });
     res.send("Scrape Complete!");
 });
 

@@ -1,11 +1,19 @@
 # News Scraper
 
-The application is deployed on [Heroku] https://flowmar-mongo-news-scraper.herokuapp.com:
-```
- https://flowmar-mongo-news-scraper.herokuapp.com
+The application is deployed on [Heroku](https://flowmar-mongo-news-scraper.herokuapp.com):
+
+```html
+https://flowmar-mongo-news-scraper.herokuapp.com
 ```
 
 ---
+
+To Do:
+
+1. Display scraped articles, 20 at a time when button clicked.
+1. Create a model for user Notes
+1. Create a model for a User
+1. Populate the Notes based on the User
 
 # All the News That's Fit to Scrape
 
